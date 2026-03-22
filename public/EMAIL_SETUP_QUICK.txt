@@ -1,0 +1,39 @@
+# ⚠️ EMAIL SETUP REQUIRED
+
+The contact form in your portfolio is now ready to send real emails!
+
+## Quick Setup (2 minutes):
+
+### Option 1: EmailJS (Recommended)
+1. Visit: https://www.emailjs.com/
+2. Create free account
+3. Go to Account → Copy "Public Key"
+4. Go to Email Services → Add Gmail/Email
+5. Go to Email Templates → Create New Template
+6. In `src/components/Contact.jsx`, replace these 3 lines (around line 24-26):
+   ```
+   'YOUR_PUBLIC_KEY_HERE'
+   'YOUR_SERVICE_ID_HERE'
+   'YOUR_TEMPLATE_ID_HERE'
+   ```
+   With your actual IDs from EmailJS dashboard
+
+### Template Body (copy this):
+```
+From: {{from_name}} <{{from_email}}>
+Message:
+{{message}}
+```
+
+### Option 2: Use Alternative (Formspree)
+Add to Contact.jsx:
+```javascript
+action="https://formspree.io/f/YOUR_FORM_ID"
+method="POST"
+```
+
+---
+
+**Test by sending a message from the contact form!**
+
+See `EMAIL_SETUP.md` for detailed instructions.
