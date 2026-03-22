@@ -41,11 +41,14 @@ const Navbar = () => {
   }, []);
 
   const handleNavClick = (href) => {
-    setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Small delay to allow menu to close first, then scroll
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
+    setIsMobileMenuOpen(false);
   };
 
   return (
