@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 
@@ -41,15 +41,22 @@ const Navbar = () => {
   }, []);
 
   const handleNavClick = (href) => {
+    // Get target element BEFORE closing menu
+    const sectionId = href.substring(1);
+    const element = document.getElementById(sectionId);
+    
+    // Close menu immediately
     setIsMobileMenuOpen(false);
     
-    // Wait for menu close animation to complete (300ms), then scroll
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 350);
+    // Use window.scrollTo with offset for reliable mobile scrolling
+    if (element) {
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: elementPosition - navHeight,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -130,37 +137,26 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden glass border-t border-[var(--card-border)]"
-          >
-            <div className="px-4 py-4 space-y-2">
-              {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                    activeSection === link.href.substring(1)
-                      ? 'text-[var(--primary)] bg-[var(--primary)]/10'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--card-bg)]'
-                  }`}
-                >
-                  {link.name}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isMobileMenuOpen && (
+        <div className="md:hidden glass border-t border-[var(--card-border)]">
+          <div className="px-4 py-4 space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                  activeSection === link.href.substring(1)
+                    ? 'text-[var(--primary)] bg-[var(--primary)]/10'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text)] hover:bg-[var(--card-bg)]'
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </motion.nav>
   );
 };
