@@ -95,9 +95,7 @@ const Hero = () => {
             <FaArrowDown className="w-4 h-4" />
           </motion.button>
           <motion.a
-            href="https://drive.google.com/file/d/1YOUR_RESUME_FILE_ID/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:mazumdar912@gmail.com?subject=Resume%20Request&body=Hi%20Arup,%20Please%20send%20me%20your%20resume."
             className="btn-primary flex items-center justify-center gap-2"
             style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)' }}
             whileHover={{ scale: 1.05 }}

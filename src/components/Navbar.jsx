@@ -41,14 +41,15 @@ const Navbar = () => {
   }, []);
 
   const handleNavClick = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      // Small delay to allow menu to close first, then scroll
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
     setIsMobileMenuOpen(false);
+    
+    // Wait for menu close animation to complete (300ms), then scroll
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 350);
   };
 
   return (
