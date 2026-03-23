@@ -223,16 +223,16 @@ const ProjectModal = ({ project, onClose }) => {
               {project.impact.map((item, index) => (
                 <div 
                   key={index} 
-                  className="text-center p-4 rounded-xl"
+                  className="text-center p-3 rounded-xl overflow-hidden"
                   style={{ backgroundColor: `${project.color}10` }}
                 >
                   <span 
-                    className="block text-2xl font-bold mb-1"
+                    className="block text-base md:text-2xl font-bold mb-1 break-words leading-tight"
                     style={{ color: project.color }}
                   >
                     {item.split(' ')[0]}
                   </span>
-                  <span className="text-xs text-[var(--text-secondary)]">
+                  <span className="text-xs text-[var(--text-secondary)] break-words">
                     {item.split(' ').slice(1).join(' ')}
                   </span>
                 </div>
