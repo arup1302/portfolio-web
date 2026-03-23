@@ -207,6 +207,41 @@ export const projects = [
       appStore: "#",
     },
   },
+  {
+    id: 6,
+    title: "RecruiteBae",
+    subtitle: "IT Recruitment Platform — UI Designer",
+    category: "Web App",
+    description:
+      "An IT recruitment platform with customizable hiring questionnaires and seamless team collaboration.",
+    projectDescription:
+      "RecruiteBae is an IT recruitment platform designed to streamline the hiring process. I designed the comprehensive UI for the platform, focusing on user experience and functionality. The platform features customizable hiring questionnaires that adapt to different recruitment needs. Collaborated closely with the development team to ensure seamless integration of design specifications into the final product.",
+    technologies: "React.js, React Native, Tailwind CSS",
+
+    features: [
+      "Intuitive recruitment dashboard",
+      "Customizable hiring questionnaires",
+      "Candidate management system",
+      "Team collaboration tools",
+      "Responsive UI design",
+      "User-friendly interface",
+      "Cross-platform compatibility",
+      "Performance optimized",
+    ],
+    techStack: ["React.js", "React Native", "Tailwind CSS"],
+    impact: [
+      "Comprehensive UI design",
+      "Customizable questionnaires",
+      "Team collaboration",
+      "Enhanced recruitment experience",
+    ],
+    color: "#3b82f6",
+    image: "/projects/recruitebae.png",
+    links: {
+      playStore: "#",
+      appStore: "#",
+    },
+  },
 ]
 
 export const projectCategories = [
