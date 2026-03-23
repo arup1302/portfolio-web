@@ -230,7 +230,7 @@ export const projects = [
     ],
     techStack: ["React.js", "React Native", "Tailwind CSS"],
     impact: [
-      " Robust UI Design",
+      "Robust UI Design",
       "Smart Forms",
       "Team collaboration",
       "Enhanced recruitment experience",
