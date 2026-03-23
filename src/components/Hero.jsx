@@ -94,16 +94,16 @@ const Hero = () => {
             View Projects
             <FaArrowDown className="w-4 h-4" />
           </motion.button>
-          <motion.a
+          <a
             href="mailto:mazumdar912@gmail.com?subject=Resume%20Request&body=Hi%20Arup,%20Please%20send%20me%20your%20resume."
-            className="btn-primary flex items-center justify-center gap-2"
-            style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)' }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="btn-primary flex items-center justify-center gap-2 no-underline"
+            style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)', transition: 'all 0.3s ease' }}
+            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
           >
             Download Resume
-            <FaDownload className="w-4 h-4" />
-          </motion.a>
+            <FaDownload className="w-4 h-4 ml-2" />
+          </a>
           <motion.button
             onClick={scrollToContact}
             className="btn-secondary flex items-center justify-center gap-2"

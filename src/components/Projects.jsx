@@ -170,15 +170,20 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
           </div>
 
-          {/* Problem Statement */}
+          {/* Project Description */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <FaExclamationCircle className="w-5 h-5 text-[var(--accent)]" />
-              <h3 className="text-lg font-semibold">The Problem</h3>
+              <h3 className="text-lg font-semibold">Project Description</h3>
             </div>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              {project.problem}
+              {project.projectDescription}
             </p>
+            {project.duration && (
+              <p className="text-sm text-[var(--text-secondary)] mt-2">
+                <span className="font-semibold text-[var(--text)]">Duration:</span> {project.duration}
+              </p>
+            )}
           </div>
 
           {/* Features */}
@@ -196,7 +201,8 @@ const ProjectModal = ({ project, onClose }) => {
 
           {/* Tech Stack */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-3">Technology Stack</h3>
+            <h3 className="text-lg font-semibold mb-3">Technologies & SDKs Used</h3>
+            <p className="text-sm text-[var(--text-secondary)] mb-3">{project.technologies}</p>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
                 <span
